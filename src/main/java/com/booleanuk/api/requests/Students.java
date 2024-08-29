@@ -54,9 +54,8 @@ public class Students {
     @PutMapping("{name}")
     @ResponseStatus(HttpStatus.CREATED)
     public Student editStudent(@PathVariable String name, @RequestBody Student insertStudent) {
-        System.out.println("Put action");
         for(int i = 0; i < students.size(); i++){
-            if(students.get(i).getFirstName().equals(insertStudent.getFirstName())) {
+            if(students.get(i).getFirstName().equals(name)) {
                 students.set(i, insertStudent);
                 return students.get(i);
             }
